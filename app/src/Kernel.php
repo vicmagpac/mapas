@@ -2,7 +2,13 @@
 
 declare(strict_types=1);
 
+
 namespace App;
+
+// use Symfony\Bundle\FrameworkBundle\Kernel\MicroKernelTrait;
+use Symfony\Component\HttpKernel\Kernel as BaseKernel;
+
+// use MicroKernelTrait;
 
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Response;
@@ -12,7 +18,7 @@ use Symfony\Component\Routing\Matcher\UrlMatcher;
 use Symfony\Component\Routing\RequestContext;
 use Symfony\Component\Routing\RouteCollection;
 
-class Kernel
+class Kernel extends BaseKernel
 {
     private string $url;
     private RouteCollection $routes;
@@ -20,7 +26,7 @@ class Kernel
     public function __construct()
     {
         $this->url = $this->getPathRequest();
-        $this->routes = require_once dirname(__DIR__).'/routes/routes.php';
+        $this->routes = require_once dirname(__DIR__) . '/routes/routes.php';
     }
 
     public function execute(): void
@@ -35,7 +41,7 @@ class Kernel
             $this->dispatchAction($matcher);
         } catch (MethodNotAllowedException $exception) {
             (new JsonResponse([
-                'error' => 'Method not allowed: '.$_SERVER['REQUEST_METHOD'],
+                'error' => 'Method not allowed: ' . $_SERVER['REQUEST_METHOD'],
             ], status: Response::HTTP_METHOD_NOT_ALLOWED))->send();
 
             exit;

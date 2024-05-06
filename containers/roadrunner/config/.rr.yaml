@@ -1,20 +1,28 @@
-version: "2.7"
+version: "3"
 
 rpc:
   listen: tcp://127.0.0.1:6001
 server:
   command: "php /app/worker.php"
-
+  # env:
+  #   - APP_ENV: "dev"
+  #   - APP_RUNTIME: Runtime\RoadRunnerSymfonyNyholm\Runtime
 http:
   address: :8080
+  middleware: ["headers", "static", "gzip"]
+  uploads:
+    forbid: [".php", ".exe", ".bat"]
+  static:
+    dir: "/app/public"
+    forbid: [".php", ".htaccess"]
   pool:
     num_workers: 4
     max_jobs: 64
 
 reload:
   interval: 1s
-  patterns: [ ".php" ]
+  patterns: [".php"]
   services:
     http:
       recursive: true
-      dirs: [ "/app" ]
+      dirs: ["/app"]

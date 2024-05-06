@@ -6,7 +6,7 @@ const mix = require('laravel-mix')
 const CWD = process.cwd()
 const pkg = require(`${CWD}/package.json`)
 
-function resolveDestination (source, type) {
+function resolveDestination(source, type) {
     const sourceId = source.split('/').pop().split('.').shift()
     const exportName = pkg.mapas?.assets?.[type]?.[sourceId]
     if (exportName) {
@@ -38,6 +38,10 @@ glob(['assets-src/js/*.js'], GLOB_OPTIONS).map((source) => {
 })
 
 glob(['assets-src/sass/*.scss'], GLOB_OPTIONS).map((source) => {
+    const destination = resolveDestination(source, 'css')
+    mix.sass(source, destination)
+})
+glob(['assets/css/sass/*.scss'], GLOB_OPTIONS).map((source) => {
     const destination = resolveDestination(source, 'css')
     mix.sass(source, destination)
 })

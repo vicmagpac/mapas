@@ -96,6 +96,12 @@ importers:
 
   node_scripts: {}
 
+  themes/BaseV1:
+    devDependencies:
+      '@mapas/scripts':
+        specifier: workspace:*
+        version: link:../../node_scripts
+
   themes/BaseV2:
     devDependencies:
       '@mapas/scripts':

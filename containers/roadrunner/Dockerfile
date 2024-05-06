@@ -14,7 +14,8 @@ RUN apk update && \
   libxml2-dev autoconf \
   g++ imagemagick-dev \
   libtool make postgresql-dev \
-  libzip-dev curl-dev gnu-libiconv
+  libzip-dev curl-dev gnu-libiconv \
+  linux-headers
 
 
 RUN docker-php-ext-install zip \

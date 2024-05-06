@@ -58,13 +58,13 @@ $font-path:					'../fonts/' !default;
 //** Font family name
 $font-family-base:			'Open Sans' !default;
 //** Font file names and svg ids
-$font-regular-name:			'OpenSans-Regular-webfont' !default;
+$font-regular-name:			'OpenSans' !default;
 $font-regular-svg-id:		'open_sansregular' !default;
-$font-italic-name:			'OpenSans-Italic-webfont' !default;
+$font-italic-name:			'OpenSans-Italic' !default;
 $font-italic-svg-id:		'open_sansitalic' !default;
-$font-bold-name:			'OpenSans-Bold-webfont' !default;
+$font-bold-name:			'OpenSans-Bold' !default;
 $font-bold-svg-id:			'open_sansbold' !default;
-$font-bolditalic-name:		'OpenSans-BoldItalic-webfont' !default;
+$font-bolditalic-name:		'OpenSans-BoldItalic' !default;
 $font-bolditalic-svg-id:	'open_sansbold_italic' !default;
 
 
@@ -97,7 +97,7 @@ $line-height-h6:            $line-height-base !default; // 20px
 //** Headings font family name
 $headings-font-family:		'aleo' !default;
 //** Headings font file name
-$headings-font-name:		'aleo-regular-webfont' !default;
+$headings-font-name:		'Aleo-Regular' !default;
 $headings-font-svg-id:		'aleoregular' !default;
 //** Default headings font stack
 $headings-font-stack:		$headings-font-family, serif !default;
